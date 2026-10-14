@@ -158,7 +158,7 @@ if ($action === 'delete') {
 
     $fp = abrir_datos($dataFile, true);
     $todas = leer_todo($fp);
-    $quedan = array_values(array_filter($todas, fn($h) => ($h['id'] ?? '') !== $id));
+    $quedan = array_values(array_filter($todas, function ($h) use ($id) { return ($h['id'] ?? '') !== $id; }));
     ftruncate($fp, 0); rewind($fp);
     fwrite($fp, json_encode($quedan, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     fflush($fp); flock($fp, LOCK_UN); fclose($fp);
