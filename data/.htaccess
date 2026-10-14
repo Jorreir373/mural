@@ -1,0 +1,2 @@
+# Impide ver el contenido de esta carpeta desde el navegador (Apache)
+Require all denied

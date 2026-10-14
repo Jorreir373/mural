@@ -1,0 +1,5 @@
+# En uploads solo se permiten imagenes PNG
+<FilesMatch "\.(?i:php|phtml|phar)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
